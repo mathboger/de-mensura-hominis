@@ -20,8 +20,11 @@ me first. All text output in the HTML and PDF versions is authorial.
 
 ## Reading the book
 
-For now, you have to build it locally. I will make sure to update this as
-soon as possible.
+HTML version of the most recent full build:
+https://mathboger.github.io/de-mensura-hominis/
+
+PDF version of the most recent full build:
+https://drive.google.com/file/d/1S7EepjeNxkxkQkkuX5RnPfKn9Tfk_ZOz/view?usp=drive_link
 
 ## Building locally
 
