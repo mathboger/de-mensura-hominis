@@ -1,0 +1,23 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "De Mensura Hominis",
+    "section": "",
+    "text": "Preface\nSomething clever is going to be written here.\n\nprint(\"Hello, New World!\")\n\nHello, New World!",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "chapters/motivation-and-goals/index.html",
+    "href": "chapters/motivation-and-goals/index.html",
+    "title": "1  Motivation and Goals",
+    "section": "",
+    "text": "This is how it begins.",
+    "crumbs": [
+      "General Concerns",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Motivation and Goals</span>"
+    ]
+  }
+]
