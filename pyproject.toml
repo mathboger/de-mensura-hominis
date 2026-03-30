@@ -21,3 +21,9 @@ dev = [
     "playwright>=1.44",
     "nbmake>=1.5",
 ]
+
+[tool.setuptools]
+# This is a Quarto book project, not a Python package.
+# Explicitly disable package discovery so setuptools does not try to
+# include project folders (chapters/, assets/, renv/) as Python packages.
+packages = []
