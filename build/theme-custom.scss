@@ -1,0 +1,227 @@
+// ══════════════════════════════════════════════════════════════════════════════
+// build/theme-custom.scss
+// ────────────────────────────────────────────────────────────────────────────
+// Generated with the assistance of AI (Claude, Anthropic).
+//
+// Custom HTML theme for De Mensura Hominis.
+// Layered on top of Quarto's cosmo (light) and darkly (dark) base themes.
+// Controls typography, colours, code block appearance, callout boxes,
+// sidebar, tables, and MathJax inline sizing.
+// ══════════════════════════════════════════════════════════════════════════════
+
+// ────────────────────────────────────────────────────────────────────────────
+// This file was generated with the assistance of AI (Claude, Anthropic).
+// ────────────────────────────────────────────────────────────────────────────
+
+/*
+  build/theme-custom.scss
+  ───────────────────────
+  Custom HTML theme for De Mensura Hominis.
+  Layered on top of Quarto's cosmo (light) and darkly (dark) base themes.
+  Referenced in _quarto.yml under format: html: theme:
+*/
+
+/*-- scss:defaults --*/
+
+// ── Google Fonts ────────────────────────────────────────────────────────────
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Jost:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+// ── Typefaces ────────────────────────────────────────────────────────────────
+$font-family-sans-serif: "Jost", "Helvetica Neue", sans-serif;
+$font-family-monospace:  "JetBrains Mono", "Fira Code", monospace;
+$font-size-root:         16px;
+$line-height-base:       1.88;
+
+// ── Palette ──────────────────────────────────────────────────────────────────
+$page-bg:        #EAE4D4;   // light cream — page background
+$surface-bg:     #DECDAB;   // full cream  — code blocks, callouts
+$brown:          #722818;   // dark brown  — headings, rules, keywords
+$amber:          #ED952F;   // amber       — callout accents, section numbers
+$link-color:     #4A90A8;   // steel blue  — hyperlinks
+$body-color:     #111111;   // near black  — body text
+
+// Pass to Bootstrap/Quarto variables
+$body-bg:        $page-bg;
+$body-color:     $body-color;
+$link-color:     $link-color;
+$headings-color: $brown;
+
+// ── Sidebar ───────────────────────────────────────────────────────────────────
+$sidebar-bg:     $surface-bg;
+$sidebar-fg:     $body-color;
+
+/*-- scss:rules --*/
+
+// ── Headings ──────────────────────────────────────────────────────────────────
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Outfit", "Helvetica Neue", sans-serif;
+  color: #722818;
+}
+
+h1 { font-size: 2.1rem;  font-weight: 700; letter-spacing: -0.01em; }
+h2 { font-size: 1.35rem; font-weight: 600; }
+h3 { font-size: 1.1rem;  font-weight: 600; }
+
+// Chapter title rule
+.chapter > section > h1,
+h1.title {
+  border-bottom: 1.5px solid #722818;
+  padding-bottom: 0.45em;
+  margin-bottom: 1.1em;
+}
+
+// ── Section numbers ───────────────────────────────────────────────────────────
+.header-section-number {
+  color: #ED952F;
+  margin-right: 0.4em;
+}
+
+// ── Body text ─────────────────────────────────────────────────────────────────
+body {
+  font-family: "Jost", "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  line-height: 1.88;
+  color: #111111;
+  background-color: #EAE4D4;
+}
+
+// ── Links ─────────────────────────────────────────────────────────────────────
+a {
+  color: #4A90A8;
+  text-decoration: none;
+  &:hover { text-decoration: underline; }
+}
+
+// ── Code blocks ───────────────────────────────────────────────────────────────
+pre.sourceCode, div.sourceCode {
+  background-color: #DECDAB !important;
+  border-left: 3px solid #ED952F;
+  border-radius: 0 6px 6px 0;
+  font-size: 0.84rem;
+  line-height: 1.72;
+}
+
+code {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.84em;
+  background-color: #DECDAB;
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+  color: #722818;
+}
+
+pre code { color: #111111; background: transparent; padding: 0; }
+
+// ── Syntax token colours ──────────────────────────────────────────────────────
+// Keywords
+code span.kw { color: #722818; font-weight: 500; }
+// Strings
+code span.st { color: #4A90A8; }
+// Numbers
+code span.dv, code span.fl, code span.cn { color: #ED952F; }
+// Functions / attributes
+code span.fu, code span.at { color: #8B5E3C; }
+// Comments
+code span.co { color: #9E8E78; font-style: italic; }
+// Built-ins / control flow
+code span.bu, code span.cf { color: #C4720A; }
+// Operators, variables, normal text
+code span.op, code span.va, code span.sc { color: #111111; }
+
+// ── Callout boxes ─────────────────────────────────────────────────────────────
+.callout {
+  background-color: #DECDAB;
+  border-radius: 0 6px 6px 0;
+
+  &.callout-note      { border-left-color: #ED952F; }
+  &.callout-tip       { border-left-color: #4A90A8; }
+  &.callout-warning   { border-left-color: #722818; }
+  &.callout-important { border-left-color: #722818; }
+  &.callout-caution   { border-left-color: #C4720A; }
+}
+
+.callout-title-container {
+  font-family: "Outfit", sans-serif;
+  font-weight: 600;
+  font-size: 0.88rem;
+}
+
+// ── Figure captions ───────────────────────────────────────────────────────────
+figcaption,
+.quarto-float-caption,
+p.caption {
+  font-family: "Jost", sans-serif;
+  font-size: 0.84rem;
+  color: #5a4a3a;
+  text-align: center;
+  margin-top: 0.4em;
+  font-style: italic;
+}
+
+// ── Tables ────────────────────────────────────────────────────────────────────
+table {
+  font-size: 0.9rem;
+  width: 100%;
+}
+
+thead tr th {
+  border-bottom: 2px solid #722818;
+  font-family: "Outfit", sans-serif;
+  font-weight: 600;
+  color: #722818;
+}
+
+tbody tr:nth-child(even) {
+  background-color: rgba(222, 205, 171, 0.35);
+}
+
+// ── TOC sidebar ───────────────────────────────────────────────────────────────
+#TOC {
+  font-size: 0.84rem;
+  font-family: "Jost", sans-serif;
+
+  a {
+    color: #3d2010;
+    text-decoration: none;
+    &:hover { color: #722818; }
+  }
+
+  .active > a { color: #722818; font-weight: 500; }
+}
+
+// ── Navigation sidebar ────────────────────────────────────────────────────────
+.sidebar {
+  background-color: #DECDAB;
+  border-right: 1px solid rgba(114, 40, 24, 0.15);
+}
+
+.sidebar-title {
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  color: #722818;
+  font-size: 1rem;
+}
+
+// ── Page footer ───────────────────────────────────────────────────────────────
+.nav-footer {
+  font-family: "Jost", sans-serif;
+  font-size: 0.8rem;
+  color: #9E8E78;
+  border-top: 1px solid rgba(114, 40, 24, 0.2);
+}
+
+// ── Math (MathJax) ────────────────────────────────────────────────────────────
+// Ensure inline math sits flush with Jost body text
+mjx-container[jax="SVG"][display="false"] {
+  font-size: 1em !important;
+  vertical-align: -0.15em;
+}
+
+// ── Dark mode overrides ───────────────────────────────────────────────────────
+// Quarto's darkly theme handles most dark mode switching.
+// These ensure our custom colours degrade gracefully.
+@media (prefers-color-scheme: dark) {
+  pre.sourceCode, div.sourceCode {
+    border-left-color: #C4720A;
+  }
+}

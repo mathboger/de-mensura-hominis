@@ -1,0 +1,39 @@
+% ──────────────────────────────────────────────────────────────────────────────
+% This file was generated with the assistance of AI (Claude, Anthropic).
+% build/title.tex
+% ──────────────────────────────────────────────────────────────────────────────
+% Quarto template partial for the PDF title block.
+% Copied from Quarto's default title.tex and extended with two overrides:
+%   1. Callout box background — Quarto hardcodes colback=white and
+%      opacityback=0 inline on every tcolorbox callout. Since inline options
+%      override any global \tcbset, we wrap the tcolorbox environment itself
+%      so our overrides always fire last and win.
+%   2. Code block line number spacing — \fvset adjusts fancyvrb globally
+%      after all environments are defined.
+% ──────────────────────────────────────────────────────────────────────────────
+
+$if(title)$
+\title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
+$endif$
+$if(subtitle)$
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{$subtitle$}
+$endif$
+$-- This supports Quarto's authors normalization
+\author{$for(authors)$$it.name.literal$$sep$ \and $endfor$}
+
+% ── Callout box background override ──────────────────────────────────────────
+\makeatletter
+\let\orig@tcolorbox\tcolorbox
+\let\endorig@tcolorbox\endtcolorbox
+\renewenvironment{tcolorbox}[1][]{%
+  \orig@tcolorbox[#1, colback=bookcream, opacityback=1]%
+}{%
+  \endorig@tcolorbox%
+}
+\makeatother

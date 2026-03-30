@@ -1,0 +1,113 @@
+# ──────────────────────────────────────────────────────────────────────────────
+# This file was generated with the assistance of AI (Claude, Anthropic).
+# ──────────────────────────────────────────────────────────────────────────────
+
+# ── Project type ──────────────────────────────────────────────────────────────
+project:
+  type: book                      # this is a Quarto book project
+
+# ── Book metadata ─────────────────────────────────────────────────────────────
+book:
+  title: "De Mensura Hominis"
+  subtitle: "A Mathematical Account of Behavior from Neuron to Society"
+  author: "Matheus Boger"
+  date: today
+  description: "A mathematical account of behaviour from neuron to society."
+  repo-url: https://github.com/mathboger/de-mensura-hominis
+  repo-actions: [edit, issue]     # show Edit and Issue buttons in HTML sidebar
+
+  # ── Chapter list ────────────────────────────────────────────────────────────
+  # Chapter order and part assignment are controlled here.
+  # Folder names under chapters/ have no required convention.
+  # To reorder chapters or reassign them to different parts, edit this list.
+  # To create a profiled export (e.g. only neuroscience chapters), copy this
+  # file, edit the chapters list, and render with --config your-profile.yml.
+  chapters:
+    - index.qmd                   # preface / landing page
+    - part: "Book I: General Concerns"
+      chapters:
+        - chapters/motivation-and-goals/index.qmd
+
+  # ── Sidebar ─────────────────────────────────────────────────────────────────
+  sidebar:
+    style: docked
+    collapse-level: 2
+
+  # ── Page footer ─────────────────────────────────────────────────────────────
+  page-footer:
+    left: "© Matheus Boger"
+    right:
+      - icon: github
+        href: https://github.com/mathboger/de-mensura-hominis
+
+# ── Bibliography ──────────────────────────────────────────────────────────────
+bibliography: references.bib      # BibTeX file with all citations
+csl: chicago-author-date.csl      # citation style (Chicago author-date)
+
+# ── HTML output ───────────────────────────────────────────────────────────────
+format:
+  html:
+    theme:
+      light: [cosmo, build/theme-custom.scss]   # cosmo base + our custom styles
+      dark:  [darkly, build/theme-custom.scss]  # darkly base + our custom styles
+    highlight-style: pygments    # syntax highlighting (overridden by token colours in scss)
+    code-copy: true              # show copy button on code blocks
+    code-link: true              # link function names to documentation
+    toc: true                    # show table of contents
+    toc-depth: 3                 # include up to h3 in TOC
+    number-sections: true        # number chapters and sections
+    number-depth: 3              # number up to h3
+    fig-responsive: true         # make figures scale to container width
+    html-math-method:
+      method: mathjax
+      url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"  # Computer Modern math font
+
+  # ── PDF output ──────────────────────────────────────────────────────────────
+  pdf:
+    documentclass: scrbook        # KOMA-Script book class
+    classoption:
+      - twoside                   # alternating margins for print binding
+      - 11pt
+      - a4paper
+    papersize: a4
+    fontsize: 11pt
+    linestretch: 1.25             # line spacing
+    geometry:                     # page margins
+      - top=30mm
+      - bottom=30mm
+      - inner=30mm
+      - outer=25mm
+      - marginparwidth=18mm
+    number-sections: true
+    toc: true
+    toc-depth: 3
+    lof: true                     # list of figures
+    lot: true                     # list of tables
+    colorlinks: true              # coloured hyperlinks
+    linkcolor: NavyBlue           # internal link colour (dvipsnames)
+    urlcolor: RoyalBlue           # URL colour (dvipsnames)
+    code-line-numbers: true       # show line numbers in code blocks
+    highlight-style: pygments     # syntax highlighting theme for PDF
+    code-block-bg: "#DECDAB"      # full cream background for code blocks
+    keep-tex: false               # set to true when debugging LaTeX output
+    include-in-header: build/preamble.tex       # fonts, colours, section styles
+    template-partials:
+      - build/title.tex           # custom title partial — also overrides callout backgrounds
+
+# ── Code execution ────────────────────────────────────────────────────────────
+execute:
+  freeze: auto       # re-execute only when source changes; cache other outputs
+  cache: false       # do not use jupyter-cache (incompatible with per-chapter venvs)
+  echo: true         # show code in output by default
+  warning: false     # suppress warnings
+  error: false       # suppress errors (don't halt on R/Python errors)
+
+# ── knitr options (R chunks) ──────────────────────────────────────────────────
+knitr:
+  opts_chunk:
+    fig.align: center   # centre all figures
+    fig.width: 7        # default figure width in inches
+    fig.height: 4.5     # default figure height in inches
+    dpi: 150            # figure resolution
+    dev: png            # output format for figures
+    comment: "#>"       # prefix for R output lines

@@ -1,0 +1,23 @@
+[project]
+name = "book"
+version = "0.1.0"
+requires-python = ">=3.10"
+
+# Global tier: only tools every chapter needs.
+# Chapter-specific science packages live in chapters/chXX/requirements.txt
+dependencies = [
+    "jupyter>=1.0",
+    "jupyterlab>=4.0",
+    "ipykernel>=6.0",       # needed to register per-chapter kernels
+    "matplotlib>=3.8",
+    "numpy>=1.26",
+    "pandas>=2.1",
+    "nbformat>=5.9",
+    "nbconvert>=7.14",
+]
+
+[project.optional-dependencies]
+dev = [
+    "playwright>=1.44",
+    "nbmake>=1.5",
+]

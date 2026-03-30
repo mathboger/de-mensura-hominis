@@ -1,0 +1,6 @@
+# Chapter-specific packages — add what this chapter needs.
+# Base packages (numpy, matplotlib, pandas) are pre-installed.
+# Examples:
+# scipy>=1.12
+# statsmodels>=0.14
+# networkx>=3.2

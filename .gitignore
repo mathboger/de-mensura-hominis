@@ -1,0 +1,42 @@
+# Quarto generated
+output/
+_freeze/
+.quarto/
+**/_files/
+
+# Python — global venv
+.venv/
+*.egg-info/
+
+# Python — chapter venvs (the venv itself is git-ignored; requirements.txt is not)
+chapters/**/.venv/
+chapters/**/__pycache__/
+
+# R
+.Rhistory
+.RData
+.Rproj.user/
+renv/library/
+renv/staging/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+
+# LaTeX aux files
+*.aux *.log *.out *.toc *.lof *.lot *.bbl *.blg *.fls *.fdb_latexmk
+
+# Editor
+.vscode/
+.idea/
+
+# Windows Zone Identifier metadata files
+*:Zone.Identifier
+
+/.quarto/
+**/*.quarto_ipynb
+
+# Reference style
+chicago-author-date.csl

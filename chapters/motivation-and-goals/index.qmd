@@ -1,0 +1,6 @@
+---
+title: "Motivation and Goals"
+jupyter: motivation-and-goals
+---
+
+This is how it begins.

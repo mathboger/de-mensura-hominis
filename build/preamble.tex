@@ -1,0 +1,91 @@
+% ──────────────────────────────────────────────────────────────────────────────
+% This file was generated with the assistance of AI (Claude, Anthropic).
+% ──────────────────────────────────────────────────────────────────────────────
+
+% ══ build/preamble.tex ═══════════════════════════════════════════════════════
+% Custom LaTeX preamble for De Mensura Hominis.
+% Loaded via include-in-header in _quarto.yml.
+% Only contains settings that Quarto does not manage itself.
+%
+% OPTIONAL font matching (see SETUP.md):
+% To match the HTML output fonts (Jost body, Outfit headings, JetBrains Mono
+% code), install those fonts as system fonts and uncomment the Optional block
+% below, commenting out the Default block.
+% ═════════════════════════════════════════════════════════════════════════════
+
+% ── Fonts (XeLaTeX) ───────────────────────────────────────────────────────────
+
+% Default: classic book fonts, no extra installation required.
+%\usepackage{fontspec}
+%\setmainfont{TeX Gyre Pagella}
+%\setmonofont[Scale=0.88]{Inconsolata}
+
+% Optional: uncomment to match HTML fonts exactly.
+% Requires Outfit, Jost, and JetBrains Mono installed as system fonts.
+% See SETUP.md — "Optional: match PDF fonts to HTML".
+%
+\usepackage{fontspec}
+\setmainfont{Jost}
+\setsansfont{Outfit}
+\setmonofont[Scale=0.88]{JetBrains Mono}
+
+% ── Palette colours for PDF ───────────────────────────────────────────────────
+% Defined here so they can be reused in any future custom LaTeX elements.
+% Quarto handles hyperref colours via _quarto.yml (NavyBlue / RoyalBlue).
+\usepackage{xcolor}
+\definecolor{bookbrown}{HTML}{722818}
+\definecolor{bookamber}{HTML}{ED952F}
+\definecolor{bookcream}{HTML}{DECDAB}
+\definecolor{bookblue}{HTML}{4A90A8}
+\definecolor{bookpage}{HTML}{EAE4D4}
+
+% Set page background color
+\pagecolor{bookpage}
+
+% Nudge line numbers inward
+\AtBeginDocument{
+  \RecustomVerbatimEnvironment{Highlighting}{Verbatim}{
+    commandchars=\\\{\},
+    numbers=left,
+    numbersep=8pt
+  }
+}
+
+% ── Microtype ─────────────────────────────────────────────────────────────────
+\usepackage{microtype}
+
+% ── Widows and orphans ────────────────────────────────────────────────────────
+\widowpenalty=10000
+\clubpenalty=10000
+
+% ── Section number colour ─────────────────────────────────────────────────────
+% Colours the chapter/section numbers amber to match the HTML output.
+\usepackage{etoolbox}
+\usepackage{titlesec}
+
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries\color{bookbrown}}
+  {\color{bookamber}\chaptertitlename\ \thechapter}
+  {20pt}
+  {\Huge\color{bookbrown}}
+  [\vspace{2pt}{\color{bookbrown}\titlerule[1pt]}]
+
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{bookbrown}}
+  {\color{bookamber}\thesection}
+  {0.8em}
+  {}
+
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{bookbrown}}
+  {\color{bookamber}\thesubsection}
+  {0.8em}
+  {}
+
+% ── Running headers ───────────────────────────────────────────────────────────
+\usepackage{scrlayer-scrpage}
+\pagestyle{scrheadings}
+\automark[section]{chapter}
+\setkomafont{pageheadfoot}{\small\color{bookbrown}}
+\setkomafont{pagenumber}{\small\color{bookbrown}}
+
