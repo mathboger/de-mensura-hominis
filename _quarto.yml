@@ -14,7 +14,8 @@ book:
   date: today
   description: "A mathematical account of behaviour from neuron to society."
   repo-url: https://github.com/mathboger/de-mensura-hominis
-  repo-actions: [edit, issue]     # show Edit and Issue buttons in HTML sidebar
+  repo-actions: [issue]     # show Edit and Issue buttons in HTML sidebar
+  site-url: https://mathboger.github.io/de-mensura-hominis
 
   # ── Chapter list ────────────────────────────────────────────────────────────
   # Chapter order and part assignment are controlled here.
@@ -24,7 +25,7 @@ book:
   # file, edit the chapters list, and render with --config your-profile.yml.
   chapters:
     - index.qmd                   # preface / landing page
-    - part: "Book I: General Concerns"
+    - part: "General Concerns"
       chapters:
         - chapters/motivation-and-goals/index.qmd
 
@@ -32,6 +33,7 @@ book:
   sidebar:
     style: docked
     collapse-level: 2
+    logo: assets/de-mensura-hominis-icon.png
 
   # ── Page footer ─────────────────────────────────────────────────────────────
   page-footer:
@@ -90,6 +92,7 @@ format:
     highlight-style: pygments     # syntax highlighting theme for PDF
     code-block-bg: "#DECDAB"      # full cream background for code blocks
     keep-tex: false               # set to true when debugging LaTeX output
+    include-before-body: build/cover.tex # add cover page
     include-in-header: build/preamble.tex       # fonts, colours, section styles
     template-partials:
       - build/title.tex           # custom title partial — also overrides callout backgrounds

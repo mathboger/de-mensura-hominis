@@ -37,6 +37,3 @@ renv/staging/
 
 /.quarto/
 **/*.quarto_ipynb
-
-# Reference style
-chicago-author-date.csl
